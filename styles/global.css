@@ -1,0 +1,103 @@
+html{
+    height:100vh;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Avenir, Arial, sans-serif;
+    background:#f8f8f8;
+    color:#222;
+    margin:0;
+    padding:0;
+}
+
+#__next{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    min-height:100vh;
+}
+
+header{
+    width:1000px;
+    padding:0 2em;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+main{
+    width:1000px;
+    flex:1;
+}
+
+footer{
+    width:1000px;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@media screen and (max-width:1000px) {
+    
+    header, main, footer{
+        width:100%;
+    }
+}
+
+/* HEADER SPECIFIC STYLING */
+
+header h1{
+    font-size:26px;
+}
+
+header nav{
+    margin-left:4em;
+}
+
+header nav ul{
+    display:flex;
+    list-style-type:none;
+}
+
+header nav ul li{
+    margin-left:2em;
+}
+
+header nav ul li a{
+    font-size:18px;
+    color:#222;
+    text-decoration:none;
+}
+
+header nav ul li a:hover{
+    text-decoration: underline;
+}
+
+/* MAIN SPECIFIC STYLING */
+
+main{
+    padding:2em;
+}
+
+/* MOVIE STYLING */
+
+.movies{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.movieItem{
+    width:33%;
+    text-align:center;
+}
+
+.movieItem a{
+    color:black;
+    font-size:18px;
+}
