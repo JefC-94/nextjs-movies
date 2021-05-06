@@ -16,7 +16,7 @@ export default function MovieDetail({movie}) {
     )
 }
 
-export async function getServerSideProps(context){
+export async function getStaticProps(context){
     console.log("executed on server");
 
     const id = context.params.id;
@@ -30,4 +30,19 @@ export async function getServerSideProps(context){
         }
     }
   
-  }
+}
+
+export async function getStaticPaths(){
+
+    const request = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2f4d2782f86267806047a2e8197b5990&language=en-US&query=The&include_adult=false`);
+    const movies = request.data.results;
+
+    const paths = movies.map(movie => ({
+        params: {id: movie.id.toString()},
+    }));
+
+    return {
+      paths,
+      fallback: false
+    }
+}

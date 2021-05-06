@@ -22,7 +22,7 @@ export default function Home({movies}) {
                 <Link href={`/moviedetail/`+ movie.id /* + "/" + slugify(movie.original_title, {strict: true, lower: true,} )*/}>
                 <a>
                     <h4>{movie.original_title}</h4>
-                    {/* <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path} /> */}
+                    <img src={"https://image.tmdb.org/t/p/w200/" + movie.poster_path} />
                 </a>
                 </Link>
             </div>
@@ -35,10 +35,25 @@ export default function Home({movies}) {
 
 
 
-export async function getServerSideProps(){
+/* export async function getServerSideProps(){
   console.log("executed on server");
   
-  const request = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2f4d2782f86267806047a2e8197b5990&language=en-US&query=Titanic&include_adult=false`);
+  const request = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2f4d2782f86267806047a2e8197b5990&language=en-US&query=The&include_adult=false`);
+  const movies = request.data.results;
+
+  return {
+      props: {
+          movies
+      }
+  }
+
+} */
+
+
+export async function getStaticProps(){
+  console.log("executed on server");
+  
+  const request = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=2f4d2782f86267806047a2e8197b5990&language=en-US&query=The&include_adult=false`);
   const movies = request.data.results;
 
   return {
